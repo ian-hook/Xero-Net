@@ -56,6 +56,10 @@ namespace Xero.Api.Infrastructure.Http
             {
                 Client.ModifiedSince = ModifiedSince.Value;
             }
+            else
+            {
+                Client.ModifiedSince = null;
+            }
 
             return Read<TResult, TResponse>(Client.Get(endPoint, new QueryGenerator(Where, Order, Parameters).UrlEncodedQueryString));
         }
